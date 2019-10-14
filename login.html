@@ -181,7 +181,7 @@
 	<div class="login">
 		<div class="conerterbox">
 			<h3>用户登录</h3>
-			<form id="validForm" action="/user/login" method="post" onsubmit="return sumbit()">
+			<form id="validForm" action="php/login.php" method="post" onsubmit="return sumbit()">
 				<input type="hidden" name="fallbackUrl" value="">
 				<div class="inp_box user_name">
 					<input type="text" id="username" name="username" value="" placeholder="手机号/邮箱/用户名">
@@ -193,6 +193,7 @@
 					<input type="password" id="password" name="password" placeholder="输入密码">
 					<p id="errorPassword" style="display: none;color: red;">请输入密码</p><!--验证提示-->
 				</div>
+				<div id="messageBox"></div>
 				<div class="check_box">				
 					  <input type="checkbox" id="rememberMe" name="rememberMe">
 					  <label for="automatic_login">自动登录</label>
@@ -201,7 +202,7 @@
 					  <label for="password_check">记住密码</label>
 					  <a href="/forgot_password">忘记密码？</a>
 				</div>
-				<div class="login_btn"><input type="submit" value="登录"></div>
+				<div class="login_btn"><input type="button" value="登录" id="login-box"></div>
 				</form>
 				<p class="p1"><i class="l"><img src="img/login_icon.png"></i>尚未成为植物医生会员？<i class="r">
 					<img src="img/login_icon.png"></i></p>
@@ -291,6 +292,37 @@ window.onload = function(){
 	   }	
 	}   
 }
-
+$("#login-box").onclick = function(){
+		//1、
+		let xhr = new XMLHttpRequest();
+	
+		xhr.open("post","php/login.php",true);
+	
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState==4 && xhr.status==200){
+				if(xhr.responseText==1){
+					location.href="index.html";
+				 }else{
+					$("#messageBox").innerHTML = "亲，用户名或者密码不对";
+				 }
+			}
+		}
+		//post方式：设置请求头
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		//post方式：把传给服务器端数据（键值对）放在send函数的参数里。
+		let sendstr = `username=${$("#username").value}&userpass=${$("#password").value}`;
+		xhr.send(sendstr);
+	}
+	
+	function $(str){
+		if(str.charAt(0)=="#"){
+			return document.getElementById(str.substring(1));
+		}else if(str.charAt(0)=="."){
+			return document.getElementsByClassName(str.substring(1));
+		}else{
+			return document.getElementsByTagName(str);
+		}
+	}	
 </script>
+
  
