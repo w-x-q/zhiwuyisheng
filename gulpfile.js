@@ -1,5 +1,4 @@
 const gulp = require("gulp");
-const uglify = require("gulp-uglify");
 const sass = require("gulp-sass");
 const minifycss = require("gulp-minify-css");
 
@@ -25,7 +24,7 @@ gulp.task("watchall",async ()=>{
      gulp.watch("Demosass/*.scss",async ()=>{
         gulp.src("Demosass/*.scss")
         .pipe(sass())
-        .pipe(gulp.dest("E:\\newwork\\css"));
+        .pipe(gulp.dest("E:\\zhiwuyisheng\\css"));
     });
 
  })
