@@ -193,7 +193,6 @@
 					<input type="password" id="password" name="password" placeholder="输入密码">
 					<p id="errorPassword" style="display: none;color: red;">请输入密码</p><!--验证提示-->
 				</div>
-				<div id="messageBox"></div>
 				<div class="check_box">				
 					  <input type="checkbox" id="rememberMe" name="rememberMe">
 					  <label for="automatic_login">自动登录</label>
@@ -303,7 +302,7 @@ $("#login-box").onclick = function(){
 				if(xhr.responseText==1){
 					location.href="index.html";
 				 }else{
-					$("#messageBox").innerHTML = "亲，用户名或者密码不对";
+					alert("亲，你的密码或用户名不正确")
 				 }
 			}
 		}

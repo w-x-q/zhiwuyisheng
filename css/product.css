@@ -24,14 +24,15 @@ img {
   height: 84px;
   background: url(../img/top_bg.png) no-repeat;
   background-size: 100% 100%; }
-  .header ul {
-    margin: 0 auto;
-    width: 1240px;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center; }
+
+.header ul {
+  margin: 0 auto;
+  width: 1240px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center; }
 
 .top_left {
   display: flex;
@@ -40,10 +41,6 @@ img {
   flex-direction: row;
   align-items: center;
   margin-left: 10px; }
-  .top_left .nav1 .icon {
-    width: 12px;
-    color: #6abd47;
-    background: url(../img/sprite_icon.png) no-repeat -32px -111px; }
 
 .top_right {
   margin-right: 10px; }
@@ -52,6 +49,11 @@ img {
   font-family: 'PingFangSC-Light', 'Microsoft YaHei';
   color: #6abd47;
   font-size: 0.8rem; }
+
+.top_left .nav1 .icon {
+  width: 12px;
+  color: #6abd47;
+  background: url(../img/sprite_icon.png) no-repeat -32px -111px; }
 
 .nav2 {
   font-family: 'PingFangSC-Light', 'Microsoft YaHei';
@@ -88,7 +90,7 @@ img {
 
 .nav {
   width: 100%;
-  background-color: #6abd47; }
+  background: #6abd47; }
 
 #navv {
   width: 100%;
@@ -158,7 +160,6 @@ dt {
   float: left; }
 
 .small .boxmegg {
-  width: 100%;
   display: none;
   height: auto;
   overflow: hidden;
@@ -220,6 +221,7 @@ input, button {
   background-color: #fff;
   margin-top: 5px; }
 
+/*nav*/
 .sanbox {
   margin-top: 140px;
   height: 30px;
@@ -227,3 +229,41 @@ input, button {
   .sanbox a {
     font-size: 12px;
     color: #666; }
+
+.product {
+  max-width: 1200px;
+  height: auto;
+  overflow: hidden;
+  background: #f9f9f9;
+  padding: 20px 3% 40px 3%;
+  margin: 0 auto; }
+  .product .page_title {
+    padding-bottom: 22px;
+    border-top: 1px solid #b2b2b2;
+    border-bottom: 2px solid #b2b2b2;
+    margin-bottom: 30px; }
+    .product .page_title .page_tab {
+      margin-top: 10px;
+      width: 100%;
+      height: auto;
+      overflow: hidden; }
+      .product .page_title .page_tab .r {
+        float: right;
+        width: 45%;
+        padding-top: 80px; }
+        .product .page_title .page_tab .r li {
+          float: right;
+          margin-left: 22px; }
+      .product .page_title .page_tab .l {
+        float: left; }
+        .product .page_title .page_tab .l h3 {
+          font-size: 26px;
+          color: #000;
+          padding-top: 32px;
+          width: 100%;
+          height: auto;
+          overflow: hidden; }
+        .product .page_title .page_tab .l p {
+          font-size: 14px;
+          margin-top: 10px;
+          width: 100%; }

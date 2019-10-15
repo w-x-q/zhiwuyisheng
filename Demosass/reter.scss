@@ -289,6 +289,7 @@ input {
                 }
             }
             .inp_box {
+                font-size: 14px;
                 width: 284px;
                 height: 58px;
                 span {
@@ -309,6 +310,7 @@ input {
                 }
                 
              .inp_con {
+                 font-size: 14px;
                     width: 214px;
                     float: left;
                     input {
@@ -324,9 +326,10 @@ input {
                     height: 34px;
                     border: 1px solid #c6d4ae;
                     margin: 0 5px 0 0;
-                }  
+                    font-size: 14px;
+                }
              .y {
-                    width: 70px;
+                    width:60px;
                 }    
             }
         }
