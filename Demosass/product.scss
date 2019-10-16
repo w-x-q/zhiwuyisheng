@@ -280,4 +280,241 @@ input, button {
             }
         }
     }
+    .list_box {
+        margin: 22px 0 42px 0;
+        .swiper-container {
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            .swiper-slide {
+                width: 5.5%;
+                margin-right: 3.8%;
+                flex-shrink: 0;
+                position: relative;
+            }
+            .swiper-slide:last-child {
+                margin-right: 0;
+            }
+            .swiper-wrapper {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-transition-property: -webkit-transform;
+                -moz-transition-property: -moz-transform;
+                -o-transition-property: -o-transform;
+                -ms-transition-property: -ms-transform;
+                transition-property: transform;
+                -webkit-box-sizing: content-box;
+                -moz-box-sizing: content-box;
+                box-sizing: content-box;
+            }
+            .this_one span {
+                color: #83af71;
+                background: url(../img/type_bg.png) no-repeat bottom center;
+             
+            }
+            p{
+                color:#666;
+                span {
+                    width: 100%;
+                    height: 45px;
+                    line-height: 45px;
+                    font-size: 14px;
+                    display: block;
+                    text-align: center;
+                }
+                
+            }
+            p:hover{
+                color:#83af71;
+            }
+        }
+        #tabbox{
+             width:100%;
+            .type_table {
+                width: 100%;
+                height: 34px;
+                border: 1px solid #83af71;
+                margin-top: 8px;
+                border-collapse: collapse;
+                border-spacing: 0;
+                display:none;
+                tbody {
+                    display: table-row-group;
+                    border-color: inherit;
+                    tr {
+                        display: table-row;
+                        vertical-align: inherit;
+                        border-color: inherit;
+                        th {
+                            display: table-cell;
+                            text-align: center;
+                            font-size: 12px;
+                        }
+                    }
+                } 
+                
+                a{
+                    color:#666;
+                    font-size: 12px;
+                    font-weight:normal;
+                }
+                a:hover{
+                    color:#83af71;
+                }
+            }
+        }
+        
+    }
+    hr{
+    margin: 36px 0 60px 0;
+    height: 2px;
+    background: #626262;
+    }
+}
+.shoppinglis{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 74px;
+    .pro_con_list {
+        width: 22%;
+        height: auto;
+        margin: 0 1.5% 60px 1.5%;
+        dl {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            dt{
+                width: 100%;
+                text-align: center;  
+                img {
+                    border: 0;
+                    width: 100%;
+                    display: block;
+                }
+            }
+            dd {
+                width: 100%;
+                text-align: center;
+            }
+            .dd1 {
+                font-size: 18px;
+                height: 50px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                margin-top: 10px;
+            }
+            .dd2 {
+                margin-top: 0px;
+                span {
+                    line-height: 34px;
+                    padding: 4px 15px;
+                    background: #617d49;
+                    color: #fff;
+                }
+            }
+        }
+        
+    }
+    .l {
+        float: left;
+    }
+    .shoppingbottom{
+        margin-top: 20px;
+        text-align: center;
+        .pager a {
+            padding: 3px 10px;
+            color: #000000;
+            font-size: 1rem;
+            margin: 5px 1% 0 0;
+            display: inline-block;
+            border: 1px solid #4f8136;
+            color: #4f8136;
+        }
+        .pager .page-curr {
+            border: 1px solid #4f8136;
+            background: #4f8136;
+            color: #fff;
+        }
+    }
+
+}
+.footer {
+    border-top: 20px solid #dae7d4;
+    margin-top: 50px;
+}
+.bottom-area {
+    height: auto;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 0 2% 25px 2%;
+}
+.bottom-area .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.bottom-area .menu {
+    overflow: hidden;
+}
+.bottom-area .menu li {
+    width: 10%;
+    margin: 0 2%;
+    float: left;
+}
+.bottom-area .bottom-bar p {
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 26px;
+}
+.bottom-area .bottom-bar p {
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 26px;
+}
+.bottom-area .menu li .menu-item li {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    color: #000000;
+     font-size: 0.8rem;
+}
+.bottom-area .menu li.last_li {
+    width: 27%;
+    margin: 0;
+    padding-left: 3%;
+}
+.bottom-area .bottom-bar {
+    width: 100%;
+    margin-top: 30px;
+    overflow: hidden;
+}
+.bottom-area .menu li .menu-item a {
+    font-size: 0.8rem;
+    color: #000000;
+}
+.bottom-area a:hover{
+    text-decoration: underline;
+
+}
+.bottom-area .menu li .menu-item .title {
+    font-size: 1rem;
+    color: #000000;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: 600;
 }
