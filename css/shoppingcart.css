@@ -12,13 +12,6 @@ a {
 img {
   border: none; }
 
-dl {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px; }
-
 .bigboxx {
   position: fixed;
   width: 100%;
@@ -31,15 +24,14 @@ dl {
   height: 84px;
   background: url(../img/top_bg.png) no-repeat;
   background-size: 100% 100%; }
-
-.header ul {
-  margin: 0 auto;
-  width: 1240px;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  align-items: center; }
+  .header ul {
+    margin: 0 auto;
+    width: 1240px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center; }
 
 .top_left {
   display: flex;
@@ -48,6 +40,10 @@ dl {
   flex-direction: row;
   align-items: center;
   margin-left: 10px; }
+  .top_left .nav1 .icon {
+    width: 12px;
+    color: #6abd47;
+    background: url(../img/sprite_icon.png) no-repeat -32px -111px; }
 
 .top_right {
   margin-right: 10px; }
@@ -56,11 +52,6 @@ dl {
   font-family: 'PingFangSC-Light', 'Microsoft YaHei';
   color: #6abd47;
   font-size: 0.8rem; }
-
-.top_left .nav1 .icon {
-  width: 12px;
-  color: #6abd47;
-  background: url(../img/sprite_icon.png) no-repeat -32px -111px; }
 
 .nav2 {
   font-family: 'PingFangSC-Light', 'Microsoft YaHei';
@@ -97,7 +88,7 @@ dl {
 
 .nav {
   width: 100%;
-  background: #6abd47; }
+  background-color: #6abd47; }
 
 #navv {
   width: 100%;
@@ -167,6 +158,7 @@ dt {
   float: left; }
 
 .small .boxmegg {
+  width: 100%;
   display: none;
   height: auto;
   overflow: hidden;
@@ -228,172 +220,100 @@ input, button {
   background-color: #fff;
   margin-top: 5px; }
 
-/*nav*/
-.sanbox {
-  margin-top: 140px;
-  height: 30px;
-  line-height: 30px; }
-  .sanbox a {
-    font-size: 12px;
-    color: #666; }
-
-.product {
+.shopping {
   width: 100%;
-  height: auto;
-  overflow: hidden; }
-  .product .new_box {
-    max-width: 1200px;
-    height: auto;
-    overflow: hidden;
-    padding: 0 2%;
-    margin: 0 auto;
-    margin-top: 60px; }
-    .product .new_box .new_tit {
-      width: 100%;
-      height: 62px;
-      font-size: 18px; }
-    .product .new_box dl {
-      width: 100%;
-      height: auto;
-      overflow: hidden;
-      margin-bottom: 40px; }
-      .product .new_box dl .new_box dl dt {
-        width: 40%;
-        height: auto; }
-    .product .new_box .l {
-      float: left; }
-    .product .new_box .dd1 {
-      font-size: 18px;
-      padding-top: 10px; }
-    .product .new_box dd {
-      width: 50%;
-      display: block;
-      margin-inline-start: 40px;
-      color: #666; }
-    .product .new_box .r {
-      float: right; }
-    .product .new_box .dd2 {
-      font-size: 16px;
-      margin-top: 20px;
-      line-height: 24px; }
-    .product .new_box .dd3, .product .new_box .dd4, .product .new_box .dd5 {
-      margin-top: 10px;
-      font-size: 14px; }
-    .product .new_box .dd5 {
-      margin-top: 20px;
+  margin-top: 140px; }
+  .shopping .sanbox {
+    height: 30px;
+    line-height: 30px; }
+    .shopping .sanbox p {
       float: right;
-      width: 140px;
-      height: 60px;
-      background: url(../img/rain_Detail.png) no-repeat center 8px;
-      transition: background .7s;
-      -moz-transition: background .7s;
-      -webkit-transition: background .7s; }
-      .product .new_box .dd5 a {
-        display: block;
-        float: right;
-        width: 140px;
-        text-align: center;
+      color: #666;
+      font-size: 16px; }
+      .shopping .sanbox p .jie {
+        background: #6abd47;
+        color: #fff;
+        width: 50px;
         height: 30px;
-        line-height: 30px;
-        background: #ab0334;
-        font-size: 14px;
-        color: #FFF;
-        margin-top: 30px; }
-
-.products_recommend {
-  max-width: 1200px;
-  height: auto;
-  overflow: hidden;
-  padding: 0 2%;
-  margin: 0 auto;
-  margin-top: 0px; }
-  .products_recommend .recommendH3 {
-    height: 28px;
-    line-height: 28px;
-    margin: 45px 0 30px;
-    font-size: 20px;
-    font-weight: 100;
-    border-bottom: 1px solid #bebfc0;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px; }
-  .products_recommend .recommendUL {
+        border-radius: 8px;
+        margin-left: 10px;
+        margin-right: 10px; }
+      .shopping .sanbox p .jie:hover {
+        background: #84a376;
+        color: #ecebeb; }
+      .shopping .sanbox p span {
+        margin: 0 10px; }
+  .shopping hr {
+    margin: 36px 20 60px 20;
+    height: 2px;
+    background: #626262; }
+  .shopping .shoppingnav {
+    display: flex;
+    justify-content: space-around;
     width: 100%;
-    height: auto;
-    overflow: hidden;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px; }
-    .products_recommend .recommendUL li {
-      width: 20%;
-      text-align: center;
-      margin: 0 2.5%;
-      float: left; }
-      .products_recommend .recommendUL li a {
-        color: #666; }
-      .products_recommend .recommendUL li dl {
+    height: 40px;
+    line-height: 40px; }
+    .shopping .shoppingnav span {
+      color: #666;
+      font-size: 14px; }
+  .shopping .shopplist {
+    width: 100%;
+    margin: 0 auto; }
+    .shopping .shopplist li {
+      margin-top: 10px; }
+    .shopping .shopplist .shoppbox {
+      background: #82eba1;
+      width: 1200px;
+      height: 250px;
+      line-height: 40px;
+      border: 2px solid #6cac53;
+      border-radius: 20px;
+      margin: 0 auto; }
+      .shopping .shopplist .shoppbox .shoptite {
         width: 100%;
-        border-bottom: 1px dashed #000;
-        margin-bottom: 5px; }
-        .products_recommend .recommendUL li dl dt {
-          width: 100%; }
-          .products_recommend .recommendUL li dl dt a {
-            width: 80%;
-            display: block;
-            margin: 0 auto;
-            color: #666; }
-          .products_recommend .recommendUL li dl dt img {
-            width: 100%; }
-      .products_recommend .recommendUL li dd {
-        height: 22px;
-        line-height: 22px;
-        margin: 5px 0;
-        font-size: 14px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis; }
-      .products_recommend .recommendUL li p {
-        line-height: 18px;
+        height: 40px;
+        line-height: 20px;
         color: #666;
-        font-size: 14px; }
+        font-size: 24px;
+        background: #4bc25b;
+        border-radius: 20px;
+        line-height: 40px; }
+      .shopping .shopplist .shoppbox .shoppshow {
+        width: 100%;
+        height: 200px;
+        background: #fff; }
+        .shopping .shopplist .shoppbox .shoppshow .shleft {
+          float: left;
+          width: 400px; }
+          .shopping .shopplist .shoppbox .shoppshow .shleft img {
+            width: 100%;
+            height: 200px; }
+          .shopping .shopplist .shoppbox .shoppshow .shleft .shright {
+            float: right;
+            width: 800px;
+            height: 120px; }
+            .shopping .shopplist .shoppbox .shoppshow .shleft .shright p {
+              font-size: 18px;
+              color: #666; }
 
-.topic {
-  width: 92%;
-  padding: 0 4%;
-  height: auto;
-  overflow: hidden;
-  margin-top: 40px;
-  background: #88c4c5;
-  border-radius: 8px; }
-  .topic .lt_tit {
-    width: 100%;
-    font-size: 24px;
-    color: #fadd3b;
-    border-bottom: 1px solid #fff;
-    line-height: 60px; }
-  .topic .topic_con {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    padding: 10px 0; }
-    .topic .topic_con ul {
-      width: 100%;
-      height: auto;
-      overflow: hidden; }
-      .topic .topic_con ul li {
-        width: 40%;
-        height: 30px;
-        margin-right: 10%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        line-height: 30px; }
-        .topic .topic_con ul li a {
-          font-size: 1rem;
-          color: #4f8136; }
+.g1 {
+  margin-top: 10px; }
+  .g1 span {
+    color: #6abd47;
+    font-size: 24px; }
+  .g1 .g2 {
+    margin-left: 300px; }
+  .g1 input {
+    width: 30px;
+    height: 25px;
+    border: none;
+    background: #69b448;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer; }
+  .g1 .g3 {
+    width: 50px; }
 
 .footer {
   border-top: 20px solid #dae7d4;
@@ -458,3 +378,6 @@ input, button {
   margin-bottom: 10px;
   text-align: left;
   font-weight: 600; }
+
+.sibox {
+  margin-top: 10px; }

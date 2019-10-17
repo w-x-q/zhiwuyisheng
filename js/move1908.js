@@ -10,8 +10,6 @@ function move1908(domObj,attr,start,end,direction,step,timeSpace){
             value = end;
             window.clearInterval(myTimer);
         }
-
-        //二、改变外观
         if(attr=="opacity"){
             domObj.style[attr] = value;
         }else{
