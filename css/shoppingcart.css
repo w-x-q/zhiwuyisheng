@@ -298,12 +298,14 @@ input, button {
 
 .g1 {
   margin-top: 10px; }
-  .g1 span {
-    color: #6abd47;
-    font-size: 24px; }
+  .g1 .count {
+    color: #000;
+    font-size: 24px;
+    width: 26px;
+    font-style: italic; }
   .g1 .g2 {
     margin-left: 300px; }
-  .g1 input {
+  .g1 .addbut, .g1 .btnReduce, .g1 .g3 {
     width: 30px;
     height: 25px;
     border: none;
@@ -311,7 +313,9 @@ input, button {
     font-size: 18px;
     color: #fff;
     border-radius: 6px;
-    cursor: pointer; }
+    cursor: pointer;
+    outline: medium;
+    border: none; }
   .g1 .g3 {
     width: 50px; }
 

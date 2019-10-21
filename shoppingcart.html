@@ -34,7 +34,7 @@
 	<div class="nav_bot">
 		<div class="nav_left" id="nav_left">
 			<ul>
-				<li><a href="#">首页</a></li>
+				<li><a href="index.html">首页</a></li>
 				<li class="lis"><a href="#">高山植物护肤
 				<span class="action"></span>
 				</a></li>
@@ -67,7 +67,7 @@
 						   <dl>
 							 <dt class="l"><a href="/node/230">产品类别：</a></dt>
 								<dd class="l">
-									   <a href="/node/234">基础护理</a>
+									   <a href="product.html">基础护理</a>
 									   <a href="/node/235">面膜</a>
 									   <a href="/node/260">洁面卸妆</a>
 									   <a href="/node/306">防晒</a>
@@ -180,55 +180,14 @@
         </div> 
         <hr>
         <div class="shoppingnav">
-            <span><input type="checkbox">全选</span><span>商品信息</span>
+            <span><input type="checkbox" id="allCheckBox">全选</span><span>商品信息</span>
             <span>单价</span><span>数量</span><span>金额</span><span>操作</span>
         </div>
-        <ul class="shopplist">
-        <li><input type="checkbox">
-            <div class="shoppbox">
-                <p class="shoptite">石斛兰面膜</p>
-                <div class="shoppshow">
-                        <div class="shleft">
-                                <img src="img/shopping1.png" alt="">
-                            </div>
-                            <div class="shright">
-                                <p>提供各类服饰、美容、家居、数码、
-                                    话费/点卡充值… 数亿优质商品,同时提供担保交易(先收货后付款)等安全交易保障服务,并由商家...</p>
-                                <div class="g1">
-                                    <span>￥66</span>
-                                    <div class="g2">
-                                    <input type="button" value="+" class="addbut"><i>&nbsp;&nbsp;0&nbsp;&nbsp;</i><input type="button"value="-" class="btnReduce">
-                                    <input type="button" value="删除" class="g3">
-                                </div>
-                                </div>
-                            </div>
-                </div>   
-        </div>
-        </li>
-        <li><input type="checkbox">
-            <div class="shoppbox">
-                <p class="shoptite">石斛兰面膜</p>
-                <div class="shoppshow">
-                        <div class="shleft">
-                                <img src="img/shopping1.png" alt="">
-                            </div>
-                            <div class="shright">
-                                <p>提供各类服饰、美容、家居、数码、
-                                    话费/点卡充值… 数亿优质商品,同时提供担保交易(先收货后付款)等安全交易保障服务,并由商家...</p>
-                                <div class="g1">
-                                    <span>￥66</span>
-                                    <div class="g2">
-                                    <input type="button" value="+" class="addbut"><i>&nbsp;&nbsp;0&nbsp;&nbsp;</i><input type="button"value="-" class="btnReduce">
-                                    <input type="button" value="删除" class="g3">
-                                </div>
-                                </div>
-                            </div>
-                </div>   
-        </div>
-        </li>
+        <ul class="shopplist" id="shopplist">
+        
     </ul>
     <div class="sanbox sibox">
-            <p>已选商品<span>合计：￥0</span><a class="jie">&nbsp;&nbsp;结&nbsp;&nbsp;&nbsp;算&nbsp;&nbsp;</a></p>
+            <p>已选商品<span >合计：￥<span id="totalMoney">0</span></span><a class="jie">&nbsp;&nbsp;结&nbsp;&nbsp;&nbsp;算&nbsp;&nbsp;</a></p>
             </div>
     </div>
    <!-- foot -->
@@ -292,6 +251,8 @@
 </body>
 </html>
 <script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/checkbox.js"></script>
+<script src="js/cookise.js"></script>
 <script>
 window.onload = function(){
     var lis =  document.getElementsByClassName("lis");
@@ -313,20 +274,128 @@ window.onload = function(){
 	      lll[s].style.display = "none";		
 	      } 
 	   }	
-	}   
-}
+	} 
+/////////////////////////////////////////发送请求	
+let xhr = new XMLHttpRequest();
+let cook=getCookie("vipName");
+			xhr.open("get","php/getShoppingCart.php?vipName="+cook,true);
+			xhr.onreadystatechange = function(){
+			if(xhr.readyState==4 && xhr.status==200){
+            let str = xhr.responseText;
+            let objs = JSON.parse(str);
+			let htmlStr="";
+			for(let i=0;i<objs.length;i++){
+				   htmlStr+=`<li class="wxq"><input type="checkbox">
+                            <div class="shoppbox">
+                            <p class="shoptite"><span id="bianhao">${objs[i].goodsId}</span>${objs[i].goodsName}</p>
+                            <div class="shoppshow">
+                            <div class="shleft">
+                            <img src="${objs[i].goodsImg}" alt="">
+                            </div>
+                            <div class="shright">
+                            <p>${objs[i].beiyong1}</p>
+                            <div class="g1">
+                            <span >￥<span class="price">${objs[i].goodsPrice}</span></span>
+                            <div class="g2">
+						    <input type="button" value="+" class="addbut">
+						    <input type="text" class="count" value="${objs[i].goodsCount}" style="border:none;" id="count">
+						    <input type="button"value="-" class="btnReduce">
+						   <input type="button" value="删除" class="g3" onclick="shanchu()" index="${objs[i].goodsId}">
+                           </div>
+                        </div>
+                       </div>
+                </div>   
+        </div>
+        </li>`;
+				}
+			$("#shopplist").html(htmlStr);
+		}
 $(function(){
 
 $(".addbut").click(function(){
 	let $text = $(this).next();
 	$text.val(parseInt($text.val())+1);
+	calMoney();
+//////////////////////////////////修改数量
+     let xhr = new XMLHttpRequest();
+			xhr.open("POST","php/updateGoodsCount.php",true);
+			xhr.onreadystatechange = function(){
+			if(xhr.readyState==4 && xhr.status==200){
+                if(xhr.responseText==0){
+				alert("修改失败");
+            }else if(xhr.responseText==1){
+				alert("修改成功");
+            }
+        }
+    }
+    let name=getCookie("vipName");
+	let goodsid=$("#bianhao").html();
+    let shuliang=$("#count").val();
+	xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	let sendstr = `vipName=${name}&goodsId=${goodsid}&goodsCount=${shuliang}`;
+    xhr.send(sendstr);
 
 });
 
 $(".btnReduce").click(function(){
 	let $text = $(this).prev();
 	$text.val(parseInt($text.val())-1);
+	calMoney();
+	let xhr = new XMLHttpRequest();
+			xhr.open("POST","php/updateGoodsCount.php",true);
+			xhr.onreadystatechange = function(){
+			if(xhr.readyState==4 && xhr.status==200){
+                if(xhr.responseText==0){
+				alert("修改失败");
+            }else if(xhr.responseText==1){
+				alert("修改成功");
+            }
+        }
+    }
+    let name=getCookie("vipName");
+	let goodsid=$("#bianhao").html();
+    let shuliang=$("#count").val();
+	xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	let sendstr = `vipName=${name}&goodsId=${goodsid}&goodsCount=${shuliang}`;
+    xhr.send(sendstr);
+
 
 });
+  $("#allCheckBox").bindCheckBox($(".wxq :checkbox"),calMoney);
 });
+function calMoney(){
+    let money = 0;
+    let $subCheckBox = $(".wxq :checkbox");
+    for(let i=0;i<$subCheckBox.length;i++){
+        if($subCheckBox[i].checked){
+            let $goodsBox = $($subCheckBox[i].parentNode);
+            money += parseFloat($goodsBox.find(".price").html())*parseFloat($goodsBox.find(".count").val());
+        }
+    }
+    $("#totalMoney").html(money);
+}
+	}
+       xhr.send();  
+}
+////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////删除
+function shanchu(){
+     let xhr = new XMLHttpRequest();
+			xhr.open("POST","php/deleteGoods.php",true);
+			xhr.onreadystatechange = function(){
+			if(xhr.readyState==4 && xhr.status==200){
+                if(xhr.responseText==0){
+				alert("删除失败");
+            }else if(xhr.responseText==1){
+				alert("您已删除");
+            }
+        }
+    }
+	let name=getCookie("vipName");
+    let goodsid=$("#bianhao").html();
+	xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	let sendstr = `vipName=${name}&goodsId=${goodsid}`;
+    xhr.send(sendstr);
+}
 </script>

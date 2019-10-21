@@ -23,7 +23,13 @@
 			<li class="top_right">
 				<a href="#" class="nav1"><span>加盟合作</span></a>
 				<span class="nav2">|</span>
-				<a href="login.html" class="nav3"><span>登录与注册</span></a></li>
+				<span  class="nav3">
+				<p id="da">
+					<a id="show" style="display:none" href="shoppingcart.html"></a>
+					<input type="button" value="退出" id="tuchu">
+				</p>
+				<a id="xian" href="login.html">登录与注册</a>
+				</span></li>
 		</ul>
 	</div>
 <!-- header -->
@@ -32,7 +38,7 @@
 <div class="nav_bot">
 	<div class="nav_left" id="nav_left">
 		<ul>
-			<li><a href="#">首页</a></li>
+			<li><a href="index.html">首页</a></li>
 			<li class="lis"><a href="#">高山植物护肤
             <span class="action"></span>
 			</a></li>
@@ -65,7 +71,7 @@
                        <dl>
 					     <dt class="l"><a href="/node/230">产品类别：</a></dt>
                             <dd class="l">
-                                   <a href="/node/234">基础护理</a>
+                                   <a href="product.html">基础护理</a>
                                    <a href="/node/235">面膜</a>
                                    <a href="/node/260">洁面卸妆</a>
                                    <a href="/node/306">防晒</a>
@@ -284,9 +290,28 @@
 </html>
 <script src="js/move1908.js" ></script>
 <script src="js/banner02.js" ></script>
+<script src="js/cookise.js"></script>
 <script type="text/javascript">
+////////////////////////cookise
+function showUser(){
+    let username = getCookie("vipName");
+    if(username!=null){
+        $("#show").innerHTML = username;
+        $("#show").style.display ="block";
+        $("#xian").style.display ="none";
+    }else{
+        $("#show").style.display ="none";
+		$("#xian").style.display ="block";
+		$("da").style.display ="none";
+		$("tuichu").style.display ="none";
+    }
+}
+//////////////////////////////////////
+
+///////////////////////////////////////////////////////////
 
 window.onload = function(){
+	
     new Banner(
         document.getElementById("box"),
         {
@@ -294,7 +319,8 @@ window.onload = function(){
             douSize:10,
             douColor:"skyblue"
         }
-    );
+	);
+	
     var lis =  document.getElementsByClassName("lis");
 	var divs = document.getElementsByClassName("boxmegg");
 	var divd = document.getElementById("navv");
@@ -315,7 +341,21 @@ window.onload = function(){
 	} 
 	}	
 	}   
+
+	showUser(); 
+	$("#tuchu").onclick=function(){
+		removeCookie("vipName");
+	}
 }
 
+function $(str){
+	if(str.charAt(0)=="#"){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=="."){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}	
 </script>
  

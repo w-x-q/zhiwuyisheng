@@ -34,7 +34,7 @@
 <div class="nav_bot">
     <div class="nav_left" id="nav_left">
         <ul>
-            <li><a href="#">首页</a></li>
+            <li><a href="index.html">首页</a></li>
             <li class="lis"><a href="#">高山植物护肤
             <span class="action"></span>
             </a></li>
@@ -67,7 +67,7 @@
                        <dl>
                          <dt class="l"><a href="/node/230">产品类别：</a></dt>
                             <dd class="l">
-                                   <a href="/node/234">基础护理</a>
+                                   <a href="product.html">基础护理</a>
                                    <a href="/node/235">面膜</a>
                                    <a href="/node/260">洁面卸妆</a>
                                    <a href="/node/306">防晒</a>
@@ -178,7 +178,7 @@
 <div class="sanbox">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="index.html">首页</a><span>></span>
-    <a href="#">高山植物护肤</a><span>></span>
+    <a href="product.html">高山植物护肤</a><span>></span>
     <a href="#">产品类别</a><span>></span>
     <a href="#">石斛兰</a>
 </div>
@@ -271,7 +271,10 @@
 </div>
 </body>
 </html>
+<script src="js/cookise.js"></script>
+
 <script type="text/javascript">
+
     window.onload = function(){
     var lis =  document.getElementsByClassName("lis");
 	var divs = document.getElementsByClassName("boxmegg");
@@ -302,7 +305,7 @@
             let objs = JSON.parse(str);
 			let htmlStr="";
 			let navlist="";
-			let id=003;
+			let id="003";
 			for(let i=0;i<objs.length;i++){
 				if(id==`${objs[i].goodsId}`){
 					htmlStr+=`<div class="new_box">
@@ -313,7 +316,7 @@
 			       <dd class="dd2 r">${objs[i].beiyong1}</dd>
 			       <dd class="dd3 r">规格：${objs[i].goodsDesc}</dd>
 			       <dd class="dd4 r">会员价：${objs[i].beiyong2}零售价： ${objs[i].goodsPrice}</dd>
-			       <dd class="dd5 r" id="goshopping"><a href="#" target="_blank" rel="nofollow">加入购物车&gt;&gt;</a></dd>
+			       <dd class="dd5 r" onclick="goshopping()"><a class="gaile">加入购物车&gt;&gt;</a></dd>
 		           </dl>
                    </div> `;
 				}
@@ -330,14 +333,12 @@
 			$("#recommendUL").innerHTML = navlist;
 		}
 	}
-       xhr.send();
-     
-// ...........
-// ........购物车
-     let buttongo=$("#goshopping")
-     buttongo.onclick=function(){
+       xhr.send();  
+  }   
+  // ........购物车
+function goshopping(){
      let xhr = new XMLHttpRequest();
-			xhr.open("get","php/getShoppingCart.php",true);
+			xhr.open("POST","php/addShoppingCart.php",true);
 			xhr.onreadystatechange = function(){
 			if(xhr.readyState==4 && xhr.status==200){
                 if(xhr.responseText==0){
@@ -347,15 +348,13 @@
             }
         }
     }
-    let name=15002553205;
+    let name=getCookie("vipName");
     let count=1;
-    let goodsid=001;
+    let goodsid="003";
 	xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	let sendstr = `vipName=${name}&goodsId=${goodsid}&goodsCount=${count}`;
     xhr.send(sendstr);
 }
-  }   
-
 function $(str){
 		if(str.charAt(0)=="#"){
 			return document.getElementById(str.substring(1));

@@ -288,7 +288,7 @@ input, button {
       transition: background .7s;
       -moz-transition: background .7s;
       -webkit-transition: background .7s; }
-      .product .new_box .dd5 a {
+      .product .new_box .dd5 .gaile {
         display: block;
         float: right;
         width: 140px;

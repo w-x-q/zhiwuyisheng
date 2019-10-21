@@ -2,9 +2,9 @@
 	//添加到购物车
 	header("Content-Type:text/html;charset=utf-8");
 	//1、接受客户端的数据（用户输入的数据）
-	$vipName   = $_REQUEST['vipName'];
-	$goodsId   = $_REQUEST['goodsId'];
-	$goodsCount = $_REQUEST['goodsCount'];
+	$vipName   = $_POST['vipName'];
+	$goodsId   = $_POST['goodsId'];
+	$goodsCount = $_POST['goodsCount'];
 	
 	//2、数据保存在数据库中
 	//1）、建立连接（搭桥）

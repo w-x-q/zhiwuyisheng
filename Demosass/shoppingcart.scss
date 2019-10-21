@@ -329,14 +329,17 @@ input, button {
   
 .g1{
     margin-top: 10px;
-    span{
-        color:#6abd47;
+    .count{
+        color:#000;
         font-size: 24px;
+        width:26px;
+        font-style: italic;
+        
     }
     .g2{
         margin-left:300px;
     }
-   input{width: 30px;
+    .addbut,.btnReduce,.g3{width: 30px;
          height: 25px;
          border: none;
          background: #69b448;
@@ -344,6 +347,8 @@ input, button {
          color: #fff;
          border-radius: 6px;
          cursor: pointer;
+         outline:medium;
+         border: none;
         } 
         .g3{
             width:50px;
